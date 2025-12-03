@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Risk Prep | Roadmap & Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        cyber: {
+                            900: '#0f172a', // Dark background
+                            800: '#1e293b', // Card background
+                            700: '#334155', // Borders
+                            500: '#3b82f6', // Primary Blue
+                            400: '#60a5fa', // Lighter Blue
+                            green: '#10b981', // Success/Green
+                            red: '#ef4444',   // Warning/Red
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+        .progress-fill {
+            transition: width 0.5s ease-out;
+        }
+        /* Custom checkbox styles */
+        .roadmap-checkbox:checked {
+            background-color: #3b82f6; /* cyber-500 */
+            border-color: #3b82f6;
+        }
+        .roadmap-checkbox:focus {
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:ring-blue-500 */
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-cyber-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shield-check" class="h-8 w-8 text-cyber-500"></i>
+                    <span class="font-bold text-xl tracking-tight text-white">Cyber<span class="text-cyber-500">Prep</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#roadmap" class="hover:bg-cyber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Roadmap</a>
+                        <a href="#interview" class="hover:bg-cyber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Interview Q&A</a>
+                        <a href="#vocabulary" class="hover:bg-cyber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Vocabulary</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden pt-16 pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 mb-6">
+                Master the Risk Interview
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400">
+                A concise roadmap and study guide to help you think like a CISO and ace your Cybersecurity Risk Management interview.
+            </p>
+            <div class="mt-8 flex justify-center gap-4">
+                <a href="#interview" class="px-8 py-3 bg-cyber-500 hover:bg-blue-600 text-white font-bold rounded-lg transition-all shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                    Start Practicing
+                </a>
+                <a href="#roadmap" class="px-8 py-3 bg-cyber-800 hover:bg-cyber-700 text-slate-200 font-semibold rounded-lg border border-cyber-700 transition-all">
+                    View Roadmap
+                </a>
+            </div>
+        </div>
+        <!-- Decorative bg glow -->
+        <div class="absolute top-0 left-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+    </header>
+
+    <!-- PART 1: INTERACTIVE ROADMAP -->
+    <section id="roadmap" class="py-8 bg-cyber-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Progress Bar Container -->
+            <div class="mb-10 bg-cyber-800 p-4 rounded-xl border border-cyber-700 shadow-lg">
+                <div class="flex justify-between items-end mb-2">
+                    <span class="text-sm font-mono text-emerald-400">MASTERY LEVEL</span>
+                    <span id="progress-text" class="text-2xl font-bold text-white">0%</span>
+                </div>
+                <div class="w-full bg-cyber-900 rounded-full h-4 border border-cyber-700 overflow-hidden">
+                    <div id="progress-bar" class="progress-fill bg-gradient-to-r from-blue-500 to-emerald-500 h-4 rounded-full" style="width: 0%"></div>
+                </div>
+                <div class="mt-2 text-right">
+                    <button onclick="resetProgress()" class="text-xs text-slate-500 hover:text-red-400 underline transition-colors">Reset Progress</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Phase 1 -->
+                <div class="bg-cyber-800 rounded-xl p-6 border-t-4 border-blue-500 shadow-lg flex flex-col h-full" data-phase="1">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white">Phase 1</h3>
+                        <span class="text-xs font-mono bg-blue-500/20 text-blue-300 px-2 py-1 rounded">Foundations</span>
+                    </div>
+                    <div class="flex-grow">
+                        <ul class="space-y-3 text-slate-300 text-sm roadmap-items">
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p1-item1" class="roadmap-checkbox mt-1 w-4 h-4 text-blue-500 bg-cyber-700 border-cyber-500 rounded focus:ring-blue-500" data-phase="1" data-item-id="1">
+                                <label for="p1-item1" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-blue-500 shrink-0 mt-1"></i>
+                                    <span>CIA Triad & AAA</span>
+                                </label>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p1-item2" class="roadmap-checkbox mt-1 w-4 h-4 text-blue-500 bg-cyber-700 border-cyber-500 rounded focus:ring-blue-500" data-phase="1" data-item-id="2">
+                                <label for="p1-item2" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-blue-500 shrink-0 mt-1"></i>
+                                    <div>
+                                        Risk Equation <br><span class="text-xs text-slate-500">(Risk = Threat × Vuln × Impact)</span>
+                                    </div>
+                                </label>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p1-item3" class="roadmap-checkbox mt-1 w-4 h-4 text-blue-500 bg-cyber-700 border-cyber-500 rounded focus:ring-blue-500" data-phase="1" data-item-id="3">
+                                <label for="p1-item3" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-blue-500 shrink-0 mt-1"></i>
+                                    <span>Inherent vs. Residual</span>
+                                </label>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p1-item4" class="roadmap-checkbox mt-1 w-4 h-4 text-blue-500 bg-cyber-700 border-cyber-500 rounded focus:ring-blue-500" data-phase="1" data-item-id="4">
+                                <label for="p1-item4" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-blue-500 shrink-0 mt-1"></i>
+                                    <span>Treatments (Avoid, Accept, Mitigate, Transfer)</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-cyber-700 text-right text-sm">
+                        <span class="text-slate-500" id="phase1-progress">0/4 items completed</span>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="bg-cyber-800 rounded-xl p-6 border-t-4 border-purple-500 shadow-lg flex flex-col h-full" data-phase="2">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white">Phase 2</h3>
+                        <span class="text-xs font-mono bg-purple-500/20 text-purple-300 px-2 py-1 rounded">Frameworks</span>
+                    </div>
+                    <div class="flex-grow">
+                        <ul class="space-y-3 text-slate-300 text-sm roadmap-items">
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p2-item1" class="roadmap-checkbox mt-1 w-4 h-4 text-purple-500 bg-cyber-700 border-cyber-500 rounded focus:ring-purple-500" data-phase="2" data-item-id="1">
+                                <label for="p2-item1" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="book" class="w-4 h-4 text-purple-500 shrink-0 mt-1"></i>
+                                    <div>
+                                        NIST CSF <br><span class="text-xs text-slate-500">(Identify, Protect, Detect, Respond, Recover)</span>
+                                    </div>
+                                </label>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p2-item2" class="roadmap-checkbox mt-1 w-4 h-4 text-purple-500 bg-cyber-700 border-cyber-500 rounded focus:ring-purple-500" data-phase="2" data-item-id="2">
+                                <label for="p2-item2" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="book" class="w-4 h-4 text-purple-500 shrink-0 mt-1"></i>
+                                    <span>NIST RMF & ISO 27001</span>
+                                </label>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p2-item3" class="roadmap-checkbox mt-1 w-4 h-4 text-purple-500 bg-cyber-700 border-cyber-500 rounded focus:ring-purple-500" data-phase="2" data-item-id="3">
+                                <label for="p2-item3" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="book" class="w-4 h-4 text-purple-500 shrink-0 mt-1"></i>
+                                    <span>CIS Top 18 Controls</span>
+                                </label>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p2-item4" class="roadmap-checkbox mt-1 w-4 h-4 text-purple-500 bg-cyber-700 border-cyber-500 rounded focus:ring-purple-500" data-phase="2" data-item-id="4">
+                                <label for="p2-item4" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="book" class="w-4 h-4 text-purple-500 shrink-0 mt-1"></i>
+                                    <span>Compliance (GDPR, HIPAA, PCI)</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-cyber-700 text-right text-sm">
+                        <span class="text-slate-500" id="phase2-progress">0/4 items completed</span>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="bg-cyber-800 rounded-xl p-6 border-t-4 border-yellow-500 shadow-lg flex flex-col h-full" data-phase="3">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white">Phase 3</h3>
+                        <span class="text-xs font-mono bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded">Assessment</span>
+                    </div>
+                    <div class="flex-grow">
+                        <ul class="space-y-3 text-slate-300 text-sm roadmap-items">
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p3-item1" class="roadmap-checkbox mt-1 w-4 h-4 text-yellow-500 bg-cyber-700 border-cyber-500 rounded focus:ring-yellow-500" data-phase="3" data-item-id="1">
+                                <label for="p3-item1" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="bar-chart-2" class="w-4 h-4 text-yellow-500 shrink-0 mt-1"></i>
+                                    <span>Qualitative vs. Quantitative</span>
+                                </label>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p3-item2" class="roadmap-checkbox mt-1 w-4 h-4 text-yellow-500 bg-cyber-700 border-cyber-500 rounded focus:ring-yellow-500" data-phase="3" data-item-id="2">
+                                <label for="p3-item2" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="bar-chart-2" class="w-4 h-4 text-yellow-500 shrink-0 mt-1"></i>
+                                    <span>Asset Mgmt ("Crown Jewels")</span>
+                                </label>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p3-item3" class="roadmap-checkbox mt-1 w-4 h-4 text-yellow-500 bg-cyber-700 border-cyber-500 rounded focus:ring-yellow-500" data-phase="3" data-item-id="3">
+                                <label for="p3-item3" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="bar-chart-2" class="w-4 h-4 text-yellow-500 shrink-0 mt-1"></i>
+                                    <span>Threat Modeling (STRIDE)</span>
+                                </label>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p3-item4" class="roadmap-checkbox mt-1 w-4 h-4 text-yellow-500 bg-cyber-700 border-cyber-500 rounded focus:ring-yellow-500" data-phase="3" data-item-id="4">
+                                <label for="p3-item4" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="bar-chart-2" class="w-4 h-4 text-yellow-500 shrink-0 mt-1"></i>
+                                    <span>Third-Party Risk (TPRM)</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-cyber-700 text-right text-sm">
+                        <span class="text-slate-500" id="phase3-progress">0/4 items completed</span>
+                    </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="bg-cyber-800 rounded-xl p-6 border-t-4 border-emerald-500 shadow-lg flex flex-col h-full" data-phase="4">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white">Phase 4</h3>
+                        <span class="text-xs font-mono bg-emerald-500/20 text-emerald-300 px-2 py-1 rounded">Operations</span>
+                    </div>
+                    <div class="flex-grow">
+                        <ul class="space-y-3 text-slate-300 text-sm roadmap-items">
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p4-item1" class="roadmap-checkbox mt-1 w-4 h-4 text-emerald-500 bg-cyber-700 border-cyber-500 rounded focus:ring-emerald-500" data-phase="4" data-item-id="1">
+                                <label for="p4-item1" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="activity" class="w-4 h-4 text-emerald-500 shrink-0 mt-1"></i>
+                                    <span>Risk Registers</span>
+                                </label>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p4-item2" class="roadmap-checkbox mt-1 w-4 h-4 text-emerald-500 bg-cyber-700 border-cyber-500 rounded focus:ring-emerald-500" data-phase="4" data-item-id="2">
+                                <label for="p4-item2" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="activity" class="w-4 h-4 text-emerald-500 shrink-0 mt-1"></i>
+                                    <span>KRIs vs KPIs</span>
+                                </label>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p4-item3" class="roadmap-checkbox mt-1 w-4 h-4 text-emerald-500 bg-cyber-700 border-cyber-500 rounded focus:ring-emerald-500" data-phase="4" data-item-id="3">
+                                <label for="p4-item3" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="activity" class="w-4 h-4 text-emerald-500 shrink-0 mt-1"></i>
+                                    <span>BCP & Disaster Recovery</span>
+                                </label>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <input type="checkbox" id="p4-item4" class="roadmap-checkbox mt-1 w-4 h-4 text-emerald-500 bg-cyber-700 border-cyber-500 rounded focus:ring-emerald-500" data-phase="4" data-item-id="4">
+                                <label for="p4-item4" class="flex-grow flex items-start gap-2 cursor-pointer text-slate-300 hover:text-white transition-colors">
+                                    <i data-lucide="activity" class="w-4 h-4 text-emerald-500 shrink-0 mt-1"></i>
+                                    <span>Cloud Risk (Shared Resp.)</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-cyber-700 text-right text-sm">
+                        <span class="text-slate-500" id="phase4-progress">0/4 items completed</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PART 2: STUDY GUIDE -->
+    <section id="interview" class="py-16 bg-cyber-800/50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white flex items-center justify-center gap-3">
+                    <i data-lucide="message-square" class="text-blue-400"></i>
+                    Model Interview Answers
+                </h2>
+                <p class="text-slate-400 mt-2">Don't memorize—internalize the concepts.</p>
+            </div>
+
+            <!-- Technical Section -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-white mb-6 border-l-4 border-blue-500 pl-4">Technical Risk Concepts</h3>
+                
+                <!-- Q1 -->
+                <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
+                    <h4 class="text-lg font-bold text-white mb-2">Q1: How do you define Risk to a non-technical board member?</h4>
+                    <div class="bg-red-500/10 border border-red-500/20 p-3 rounded mb-4 text-sm text-red-200">
+                        <span class="font-bold text-red-400">The Trap:</span> Do not use technical jargon like "CVE" or "buffer overflow".
+                    </div>
+                    <div class="bg-cyber-900/50 p-4 rounded border-l-4 border-emerald-500">
+                        <p class="text-slate-300 italic">"I define risk as the potential for loss or harm to our business goals. It’s simply the likelihood of a bad event happening multiplied by the impact it would have on our revenue, reputation, or operations. My job is to translate technical threats into business language so we can decide how much insurance to buy or how many locks to put on the doors."</p>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
+                    <h4 class="text-lg font-bold text-white mb-2">Q2: What is the difference between Inherent and Residual Risk?</h4>
+                    <div class="bg-cyber-900/50 p-4 rounded border-l-4 border-emerald-500">
+                        <p class="text-slate-300 italic mb-2"><strong class="text-emerald-400">Inherent Risk:</strong> The raw risk level before controls (walking in the rain without an umbrella).</p>
+                        <p class="text-slate-300 italic"><strong class="text-emerald-400">Residual Risk:</strong> What remains after controls are applied (walking in rain WITH an umbrella). You stay mostly dry, but there is still a small risk your shoes get wet. Management decides if that residual risk is acceptable.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frameworks Section -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-white mb-6 border-l-4 border-purple-500 pl-4">Frameworks & Processes</h3>
+                
+                <!-- Q4 -->
+                <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
+                    <h4 class="text-lg font-bold text-white mb-2">Q4: Walk me through a Third-Party Risk Assessment (TPRM).</h4>
+                    <div class="bg-cyber-900/50 p-4 rounded border-l-4 border-emerald-500">
+                        <ol class="list-decimal list-inside text-slate-300 space-y-2">
+                            <li><strong>Categorization:</strong> Determine data access (PII/Critical vs. Low).</li>
+                            <li><strong>Due Diligence:</strong> Send questionnaire (SIG-Lite) or request SOC 2 Type II report.</li>
+                            <li><strong>Review:</strong> Analyze controls (Encryption? MFA? Incident Response?).</li>
+                            <li><strong>Risk Scoring:</strong> Assign a risk score.</li>
+                            <li><strong>Contracting:</strong> Ensure 'Right to Audit' and SLAs are in the contract.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
+                    <h4 class="text-lg font-bold text-white mb-2">Q5: We have a critical vulnerability on a legacy server that cannot be patched. What do you do?</h4>
+                    <div class="bg-red-500/10 border border-red-500/20 p-3 rounded mb-4 text-sm text-red-200">
+                        <span class="font-bold text-red-400">The Trap:</span> Never say "Force the patch" (breaks business) or "Accept the risk" (negligent).
+                    </div>
+                    <div class="bg-cyber-900/50 p-4 rounded border-l-4 border-emerald-500">
+                        <p class="text-slate-300 italic mb-2">"We implement <strong>Compensating Controls</strong>:"</p>
+                        <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4">
+                            <li><strong>Isolation:</strong> Air-gap the server or strict VLAN.</li>
+                            <li><strong>Monitoring:</strong> Increase alert sensitivity for this host.</li>
+                            <li><strong>Virtual Patching:</strong> Use WAF to block exploits at network level.</li>
+                        </ul>
+                        <p class="text-slate-300 italic mt-2">"Finally, document the Exception in the Risk Register with a review date."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Situational Section -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-white mb-6 border-l-4 border-yellow-500 pl-4">Situational & Behavioral</h3>
+                
+                <!-- Q6 -->
+                <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
+                    <h4 class="text-lg font-bold text-white mb-2">Q6: A PM wants to launch tomorrow, but you found a High-Risk vulnerability. Delay costs $100k. What do you do?</h4>
+                    <div class="bg-cyber-900/50 p-4 rounded border-l-4 border-emerald-500">
+                        <p class="text-slate-300 italic">"I am not the 'Department of No'; I am the 'Department of How'. I would immediately quantify the risk. If the vulnerability allows a breach costing $5M, the $100k delay is worth it. I present this to the Business Owner. If they sign off on <strong>Accepting the Risk</strong> formally, I allow the launch but ensure they accept liability, and I prioritize a hotfix immediately."</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PART 3: VOCABULARY -->
+    <section id="vocabulary" class="py-16 bg-cyber-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white flex items-center justify-center gap-3">
+                    <i data-lucide="book-open" class="text-pink-400"></i>
+                    Buzzword Dictionary
+                </h2>
+                <p class="text-slate-400 mt-2">Speak the language.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">RTO / RPO</h5>
+                    <p class="text-sm text-slate-300"><strong>Recovery Time Objective:</strong> How long can we be down? <br><strong>Recovery Point Objective:</strong> How much data can we lose?</p>
+                </div>
+
+                <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">SOC 2 Type II</h5>
+                    <p class="text-sm text-slate-300">The gold standard report for vendor security. "Type II" means it proves controls worked over a period of time (6-12 months).</p>
+                </div>
+
+                <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">Zero Trust</h5>
+                    <p class="text-sm text-slate-300">"Never trust, always verify." Security model requiring identity verification for every person and device trying to access resources.</p>
+                </div>
+
+                <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">Risk Appetite</h5>
+                    <p class="text-sm text-slate-300">The amount and type of risk that an organization is willing to take in order to meet their strategic objectives.</p>
+                </div>
+
+                <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">SIEM</h5>
+                    <p class="text-sm text-slate-300"><strong>Security Information and Event Management.</strong> The software system where logs go to be analyzed for threats.</p>
+                </div>
+
+                 <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">KRI vs KPI</h5>
+                    <p class="text-sm text-slate-300"><strong>KRI:</strong> Future-looking (Warning signals). <br><strong>KPI:</strong> Backward-looking (Performance metrics).</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cyber-900 border-t border-cyber-700 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-500 mb-4">You've got this. Risk is not about eliminating danger; it's about managing it so the business can grow.</p>
+            <p class="text-slate-600 text-sm">&copy; 2024 Cybersecurity Prep Roadmap</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        const TOTAL_ROADMAP_ITEMS = 16;
+        const CHECKBOX_STORAGE_KEY = 'roadmapProgress';
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.roadmap-checkbox');
+            let checkedCount = 0;
+            const progressStates = {};
+
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    checkedCount++;
+                }
+                progressStates[`p${checkbox.dataset.phase}-item${checkbox.dataset.itemId}`] = checkbox.checked;
+            });
+
+            // Save progress to localStorage
+            localStorage.setItem(CHECKBOX_STORAGE_KEY, JSON.stringify(progressStates));
+
+            // Update overall progress bar
+            const progressPercentage = (checkedCount / TOTAL_ROADMAP_ITEMS) * 100;
+            document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
+            document.getElementById('progress-text').textContent = `${Math.round(progressPercentage)}%`;
+
+            // Update individual phase progress
+            for (let i = 1; i <= 4; i++) {
+                const phaseCheckboxes = document.querySelectorAll(`.roadmap-checkbox[data-phase="${i}"]`);
+                const phaseTotal = phaseCheckboxes.length;
+                let phaseChecked = 0;
+                phaseCheckboxes.forEach(cb => {
+                    if (cb.checked) {
+                        phaseChecked++;
+                    }
+                });
+                document.getElementById(`phase${i}-progress`).textContent = `${phaseChecked}/${phaseTotal} items completed`;
+            }
+        }
+
+        function loadProgress() {
+            const savedProgress = localStorage.getItem(CHECKBOX_STORAGE_KEY);
+            if (savedProgress) {
+                const progressStates = JSON.parse(savedProgress);
+                document.querySelectorAll('.roadmap-checkbox').forEach(checkbox => {
+                    const key = `p${checkbox.dataset.phase}-item${checkbox.dataset.itemId}`;
+                    if (progressStates[key] !== undefined) {
+                        checkbox.checked = progressStates[key];
+                    }
+                });
+            }
+            updateProgress(); // Initial update based on loaded or default states
+        }
+
+        function resetProgress() {
+            if (confirm("Are you sure you want to reset all roadmap progress?")) {
+                localStorage.removeItem(CHECKBOX_STORAGE_KEY);
+                document.querySelectorAll('.roadmap-checkbox').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                updateProgress();
+            }
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProgress(); // Load progress on page load
+
+            // Add change listener to all roadmap checkboxes
+            document.querySelectorAll('.roadmap-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+        });
+    </script>
+</body>
+</html>

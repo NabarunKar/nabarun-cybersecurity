@@ -328,7 +328,7 @@
 
             <!-- Technical Section -->
             <div class="mb-12">
-                <h3 class="text-2xl font-semibold text-white mb-6 border-l-4 border-blue-500 pl-4">Technical Risk Concepts</h3>
+                <h3 class="text-2xl font-semibold text-white mb-6 border-l-4 border-blue-500 pl-4">Technical Risk Concepts (Phase 1)</h3>
                 
                 <!-- Q1 -->
                 <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
@@ -349,15 +349,57 @@
                         <p class="text-slate-300 italic"><strong class="text-emerald-400">Residual Risk:</strong> What remains after controls are applied (walking in rain WITH an umbrella). You stay mostly dry, but there is still a small risk your shoes get wet. Management decides if that residual risk is acceptable.</p>
                     </div>
                 </div>
+
+                <!-- Q3 -->
+                <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
+                    <h4 class="text-lg font-bold text-white mb-2">Q3: Explain the CIA Triad and give a business example for each component.</h4>
+                    <div class="bg-red-500/10 border border-red-500/20 p-3 rounded mb-4 text-sm text-red-200">
+                        <span class="font-bold text-red-400">The Trap:</span> Just listing the words. You must show you understand their business context.
+                    </div>
+                    <div class="bg-cyber-900/50 p-4 rounded border-l-4 border-emerald-500">
+                        <p class="text-slate-300 italic mb-2"><strong class="text-emerald-400">Confidentiality:</strong> Preventing unauthorized disclosure. Example: Encrypting customer PII so only authorized employees can view it.</p>
+                        <p class="text-slate-300 italic mb-2"><strong class="text-emerald-400">Integrity:</strong> Ensuring data is accurate and trustworthy. Example: Using file hashing (checksums) to ensure a financial report hasn't been altered.</p>
+                        <p class="text-slate-300 italic"><strong class="text-emerald-400">Availability:</strong> Ensuring systems are online and accessible. Example: Using redundant servers or a CDN to protect our website from a DDoS attack.</p>
+                    </div>
+                </div>
+                
+                <!-- Q4 -->
+                <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
+                    <h4 class="text-lg font-bold text-white mb-2">Q4: What are your four main options for treating a risk?</h4>
+                    <div class="bg-cyber-900/50 p-4 rounded border-l-4 border-emerald-500">
+                        <p class="text-slate-300 italic">"The four primary risk treatments are:"</p>
+                        <ul class="list-disc list-inside text-slate-300 space-y-2 ml-4 mt-2">
+                            <li><strong class="text-emerald-400">Mitigate:</strong> Apply controls to reduce the risk (e.g., install antivirus). This is the most common.</li>
+                            <li><strong class="text-emerald-400">Transfer:</strong> Shift the risk to a third party (e.g., buy cybersecurity insurance).</li>
+                            <li><strong class="text-emerald-400">Accept:</strong> If the cost of mitigation is higher than the risk's impact, management might formally accept it.</li>
+                            <li><strong class="text-emerald-400">Avoid:</strong> Discontinue the activity causing the risk (e.g., stop using a vulnerable software).</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <!-- Frameworks Section -->
             <div class="mb-12">
-                <h3 class="text-2xl font-semibold text-white mb-6 border-l-4 border-purple-500 pl-4">Frameworks & Processes</h3>
+                <h3 class="text-2xl font-semibold text-white mb-6 border-l-4 border-purple-500 pl-4">Frameworks & Processes (Phase 2 & 3)</h3>
                 
-                <!-- Q4 -->
+                <!-- Q5 -->
                 <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
-                    <h4 class="text-lg font-bold text-white mb-2">Q4: Walk me through a Third-Party Risk Assessment (TPRM).</h4>
+                    <h4 class="text-lg font-bold text-white mb-2">Q5: What are the five core functions of the NIST Cybersecurity Framework?</h4>
+                    <div class="bg-cyber-900/50 p-4 rounded border-l-4 border-emerald-500">
+                        <p class="text-slate-300 italic">"The NIST CSF provides a high-level, strategic view of a cybersecurity program's lifecycle. The five functions are:"</p>
+                        <ol class="list-decimal list-inside text-slate-300 space-y-2 mt-2">
+                            <li><strong>Identify:</strong> Understand your assets, risks, and data flows. You can't protect what you don't know you have.</li>
+                            <li><strong>Protect:</strong> Implement safeguards like access control, training, and data security.</li>
+                            <li><strong>Detect:</strong> Implement systems to find cybersecurity events, like logging and monitoring.</li>
+                            <li><strong>Respond:</strong> Have a plan to take action once an event is detected.</li>
+                            <li><strong>Recover:</strong> Have a plan for resilience and to restore capabilities after an incident.</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <!-- Q6 -->
+                <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
+                    <h4 class="text-lg font-bold text-white mb-2">Q6: Walk me through a Third-Party Risk Assessment (TPRM).</h4>
                     <div class="bg-cyber-900/50 p-4 rounded border-l-4 border-emerald-500">
                         <ol class="list-decimal list-inside text-slate-300 space-y-2">
                             <li><strong>Categorization:</strong> Determine data access (PII/Critical vs. Low).</li>
@@ -369,9 +411,9 @@
                     </div>
                 </div>
 
-                <!-- Q5 -->
+                <!-- Q7 -->
                 <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
-                    <h4 class="text-lg font-bold text-white mb-2">Q5: We have a critical vulnerability on a legacy server that cannot be patched. What do you do?</h4>
+                    <h4 class="text-lg font-bold text-white mb-2">Q7: We have a critical vulnerability on a legacy server that cannot be patched. What do you do?</h4>
                     <div class="bg-red-500/10 border border-red-500/20 p-3 rounded mb-4 text-sm text-red-200">
                         <span class="font-bold text-red-400">The Trap:</span> Never say "Force the patch" (breaks business) or "Accept the risk" (negligent).
                     </div>
@@ -389,13 +431,40 @@
 
             <!-- Situational Section -->
             <div class="mb-12">
-                <h3 class="text-2xl font-semibold text-white mb-6 border-l-4 border-yellow-500 pl-4">Situational & Behavioral</h3>
+                <h3 class="text-2xl font-semibold text-white mb-6 border-l-4 border-yellow-500 pl-4">Situational & Behavioral (Phase 4)</h3>
                 
-                <!-- Q6 -->
+                <!-- Q8 -->
                 <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
-                    <h4 class="text-lg font-bold text-white mb-2">Q6: A PM wants to launch tomorrow, but you found a High-Risk vulnerability. Delay costs $100k. What do you do?</h4>
+                    <h4 class="text-lg font-bold text-white mb-2">Q8: A PM wants to launch tomorrow, but you found a High-Risk vulnerability. Delay costs $100k. What do you do?</h4>
                     <div class="bg-cyber-900/50 p-4 rounded border-l-4 border-emerald-500">
                         <p class="text-slate-300 italic">"I am not the 'Department of No'; I am the 'Department of How'. I would immediately quantify the risk. If the vulnerability allows a breach costing $5M, the $100k delay is worth it. I present this to the Business Owner. If they sign off on <strong>Accepting the Risk</strong> formally, I allow the launch but ensure they accept liability, and I prioritize a hotfix immediately."</p>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
+                    <h4 class="text-lg font-bold text-white mb-2">Q9: When would you use a Qualitative vs. a Quantitative risk assessment?</h4>
+                     <div class="bg-cyber-900/50 p-4 rounded border-l-4 border-emerald-500">
+                        <p class="text-slate-300 italic mb-2"><strong class="text-emerald-400">Qualitative:</strong> Use this for speed and to prioritize risks quickly. It's subjective (High, Medium, Low). I'd use this for an initial triage of a large number of risks to see which ones need immediate attention.</p>
+                        <p class="text-slate-300 italic"><strong class="text-emerald-400">Quantitative:</strong> Use this when you need to present a business case to leadership. It's objective and data-driven, assigning a dollar value (e.g., Annual Loss Expectancy). It's more time-consuming but crucial for justifying budget for security controls.</p>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                 <div class="bg-cyber-800 rounded-lg p-6 mb-6 shadow-md border border-cyber-700">
+                    <h4 class="text-lg font-bold text-white mb-2">Q10: What is a risk register and what key information does it contain?</h4>
+                     <div class="bg-cyber-900/50 p-4 rounded border-l-4 border-emerald-500">
+                        <p class="text-slate-300 italic">"A risk register is the single source of truth for all identified risks. It's a living document used to track and manage them. Key columns would include:"</p>
+                         <ul class="list-disc list-inside text-slate-300 space-y-1 ml-4 mt-2">
+                            <li>Risk ID</li>
+                            <li>Description of the risk</li>
+                            <li>Inherent Risk Score (Impact & Likelihood)</li>
+                            <li>Control(s) in place</li>
+                            <li>Residual Risk Score</li>
+                            <li>Risk Owner (who is accountable)</li>
+                            <li>Treatment Plan (e.g., Mitigate, Accept)</li>
+                            <li>Status (Open, Closed, In Progress)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -444,6 +513,46 @@
                  <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
                     <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">KRI vs KPI</h5>
                     <p class="text-sm text-slate-300"><strong>KRI:</strong> Future-looking (Warning signals). <br><strong>KPI:</strong> Backward-looking (Performance metrics).</p>
+                </div>
+
+                <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">CIA Triad</h5>
+                    <p class="text-sm text-slate-300"><strong>Confidentiality, Integrity, Availability.</strong> The three core principles of information security.</p>
+                </div>
+
+                <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">NIST CSF</h5>
+                    <p class="text-sm text-slate-300"><strong>Cybersecurity Framework.</strong> A voluntary framework that consists of standards, guidelines, and best practices to manage cybersecurity risk. Core functions are Identify, Protect, Detect, Respond, Recover.</p>
+                </div>
+
+                <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">Qualitative vs. Quantitative</h5>
+                    <p class="text-sm text-slate-300">Two methods of risk analysis. <strong>Qualitative</strong> is subjective (High/Medium/Low). <strong>Quantitative</strong> is objective and uses numerical data ($ value).</p>
+                </div>
+
+                <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">TPRM</h5>
+                    <p class="text-sm text-slate-300"><strong>Third-Party Risk Management.</strong> The process of identifying and reducing risks related to the use of third-party vendors and service providers.</p>
+                </div>
+
+                <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">Shared Responsibility</h5>
+                    <p class="text-sm text-slate-300">A cloud security framework that dictates the security obligations of a cloud provider (like AWS) and its users. AWS secures the 'cloud', you secure what's 'in the cloud'.</p>
+                </div>
+
+                <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">Risk Register</h5>
+                    <p class="text-sm text-slate-300">A tool used to document risks, their analysis, and the planned responses. It's a central repository for risk information.</p>
+                </div>
+
+                <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">Compensating Control</h5>
+                    <p class="text-sm text-slate-300">An alternative control used when a primary control cannot be implemented (e.g., virtual patching for an unpatchable server).</p>
+                </div>
+
+                <div class="p-5 bg-cyber-800 border border-cyber-700 rounded-lg">
+                    <h5 class="text-emerald-400 font-bold font-mono text-lg mb-2">STRIDE</h5>
+                    <p class="text-sm text-slate-300">A threat modeling methodology: <strong>S</strong>poofing, <strong>T</strong>ampering, <strong>R</strong>epudiation, <strong>I</strong>nformation Disclosure, <strong>D</strong>enial of Service, <strong>E</strong>levation of Privilege.</p>
                 </div>
 
             </div>
